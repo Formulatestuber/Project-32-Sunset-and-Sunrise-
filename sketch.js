@@ -2,10 +2,10 @@ const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
-var hour;
 
 var engine, world;
 var backgroundImg;
+var hour;
 
 var bg = "sunrise.png";
 
@@ -55,7 +55,7 @@ async function getBackgroundImg(){
 
     // slice the datetime to extract hour
     
-    var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+    var response = await fetch(newFunction());
     var responseJSON = await response.json();
 
     var datetime = responseJSON.datetime;
@@ -69,4 +69,8 @@ async function getBackgroundImg(){
     }
     
     backgroundImg = loadImage(bg);
+
+    function newFunction() {
+        return "http://worldtimeapi.org/api/timezone/Asia/Kolkata";
+    }
 }
