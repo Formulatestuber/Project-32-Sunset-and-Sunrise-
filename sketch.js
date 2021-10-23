@@ -2,6 +2,7 @@ const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
+var hour;
 
 var engine, world;
 var backgroundImg;
@@ -58,7 +59,7 @@ async function getBackgroundImg(){
     var responseJSON = await response.json();
 
     var datetime = responseJSON.datetime;
-    var hour = datetime.slice(11,13);
+    hour = datetime.slice(11,13);
     
     if(hour>=0 && hour<18 ){
         bg = "sunrise.png";
